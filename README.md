@@ -66,4 +66,10 @@ This distinction makes it easy to navigate and extract the desired rows and colu
 # Missing values in a dataframe
 df.isnull().sum()  // return the sum of all missing values in a column
  
-# 
+# CSV
+pd.read_csv('input.csv')
+df.into_csv('output.csv',index=False)
+# Lambda Function in python
+
+# Try Except in Python
+
