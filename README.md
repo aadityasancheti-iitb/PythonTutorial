@@ -61,3 +61,9 @@ Choosing Between .loc and .iloc
 Use .loc when your DataFrame has meaningful labels, and you need to access data by specific labels or with conditions.
 Use .iloc for purely numerical indexing, often useful when the structure of the DataFrame is numeric-based or when labels aren’t meaningful.
 This distinction makes it easy to navigate and extract the desired rows and columns based on the indexing approach you need. 
+
+
+# Missing values in a dataframe
+df.isnull().sum()  // return the sum of all missing values in a column
+ 
+# 
