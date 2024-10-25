@@ -176,3 +176,9 @@ By understanding these aspects of lambda functions, you can write more efficient
 
 # Try Except in Python
 
+# EWM in Pandas (EMAs)
+``` python
+df['EMA_short'] = df['close'].ewm(span=short, adjust=False).mean()
+df['EMA_long'] = df['close'].ewm(span=long, adjust=False).mean()
+```
+
