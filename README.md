@@ -180,5 +180,9 @@ By understanding these aspects of lambda functions, you can write more efficient
 ``` python
 df['EMA_short'] = df['close'].ewm(span=short, adjust=False).mean()
 df['EMA_long'] = df['close'].ewm(span=long, adjust=False).mean()
+
+    # Calculate rolling mean and standard deviation this way lets you not have NaN values min periods=1
+    df['MA'] = df['close'].rolling(window=window,min_periods=1).mean()
+    df['STD'] = df['close'].rolling(window=window,min_periods=1).std()
 ```
 
