@@ -272,6 +272,7 @@ The result is: 5.0
 Since no error occurred, the code in the `else` block ran.
 
 ### 7. Using `finally` for Cleanup
+Runs irrespective of the error.
 
 The `finally` block is useful for code that should run no matter what, whether an exception occurs or not. This can be for things like closing files or releasing resources.
 
