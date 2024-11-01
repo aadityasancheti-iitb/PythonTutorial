@@ -175,6 +175,174 @@ print(multiply(5, 3))  # Output: 15
 By understanding these aspects of lambda functions, you can write more efficient and concise code while maintaining readability.
 
 # Try Except in Python
+In Python, `try` and `except` are part of error handling, also known as exception handling. They allow you to handle errors in your code gracefully, so the program doesn’t crash when it encounters a problem. Let’s go over this concept step-by-step.
+
+### 1. What are Exceptions?
+
+Exceptions are errors that occur during program execution. When Python encounters an error, it generates an "exception" object and stops the program. For example, if you try to divide a number by zero, Python will raise a `ZeroDivisionError` and stop the program.
+
+Here’s a simple example of an exception:
+```python
+print(10 / 0)  # This will raise ZeroDivisionError
+```
+
+### 2. `try` and `except` Blocks
+
+To handle these exceptions and prevent the program from crashing, you can use a `try-except` block. This block allows you to "try" running a piece of code. If an error occurs, Python will move to the `except` block, where you can decide what to do with the error instead of stopping the program.
+
+Here’s a basic structure:
+
+```python
+try:
+    # Code that might cause an error
+except:
+    # Code that runs if there's an error
+```
+
+### 3. Example of `try` and `except`
+
+Let’s say we want to divide two numbers. Normally, dividing by zero would raise an error, but we can handle it with `try-except`.
+
+```python
+try:
+    result = 10 / 0
+    print("The result is:", result)
+except:
+    print("An error occurred! You can't divide by zero.")
+```
+
+**Output:**
+```
+An error occurred! You can't divide by zero.
+```
+
+### 4. Specifying the Exception Type
+
+In the above example, the `except` block will catch **any** error, which can sometimes be too broad. To be more specific, you can catch specific exceptions, like `ZeroDivisionError`. This way, only division errors will be handled in the `except` block, and other errors will still be raised.
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+```
+
+If there’s a `ZeroDivisionError`, the program will print "You can't divide by zero!". But if another error occurs, like a `NameError`, it won’t be caught here.
+
+### 5. Using Multiple `except` Blocks
+
+Sometimes, you might want to handle different types of exceptions in different ways. You can use multiple `except` blocks to do this.
+
+```python
+try:
+    # Some code that could cause different errors
+    result = 10 / 0
+    num = int("Hello")  # Trying to convert a string to an integer
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+except ValueError:
+    print("This is not a valid number.")
+```
+
+**Output:**
+```
+You can't divide by zero!
+```
+
+In this example, if the error was caused by dividing by zero, the first `except` block will handle it. If it’s a `ValueError`, the second `except` block will handle it.
+
+### 6. Using `else` with `try-except`
+
+The `else` block in a `try-except` structure runs only if the `try` block does not raise an exception.
+
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+else:
+    print("The result is:", result)
+```
+
+**Output:**
+```
+The result is: 5.0
+```
+
+Since no error occurred, the code in the `else` block ran.
+
+### 7. Using `finally` for Cleanup
+
+The `finally` block is useful for code that should run no matter what, whether an exception occurs or not. This can be for things like closing files or releasing resources.
+
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+else:
+    print("The result is:", result)
+finally:
+    print("This will always run.")
+```
+
+**Output:**
+```
+The result is: 5.0
+This will always run.
+```
+
+If an error had occurred, only the `finally` block would run.
+
+### 8. Raising Exceptions with `raise`
+
+Sometimes, you might want to force an exception in your code using `raise`. This is useful for debugging or to signal that something went wrong.
+
+```python
+x = -1
+if x < 0:
+    raise ValueError("Negative values are not allowed.")
+```
+
+This code will raise a `ValueError` if `x` is less than zero, and the program will stop with that message.
+
+### Summary of `try-except` Structure
+
+Here’s a summary of the structure:
+
+```python
+try:
+    # Code that might raise an exception
+except SpecificError:
+    # Code that handles that specific error
+except AnotherError:
+    # Code that handles another error
+else:
+    # Code that runs if there are no exceptions
+finally:
+    # Code that always runs, with or without exceptions
+```
+
+### Practical Example
+
+Suppose you want to take two numbers from a user and divide them, but handle any potential errors, like the user entering non-numeric input or dividing by zero.
+
+```python
+try:
+    x = int(input("Enter the first number: "))
+    y = int(input("Enter the second number: "))
+    result = x / y
+except ValueError:
+    print("Please enter valid numbers.")
+except ZeroDivisionError:
+    print("The second number cannot be zero.")
+else:
+    print("The result is:", result)
+finally:
+    print("Thanks for using the program!")
+```
+
+Now, if a user tries to divide by zero or enters a non-numeric value, the program won’t crash—it will give them a helpful message instead!
 
 # EWM in Pandas (EMAs)
 ``` python
